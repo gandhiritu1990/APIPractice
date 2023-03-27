@@ -1,5 +1,6 @@
 Feature: Demo feature 1
 
-  Scenario: Test first scenario
-    Given Check first scenario
-    And Check second scenario
+  Scenario: Verify Place is added sucessfully
+    Given API AddPlace request
+    When user calls AddPlace API
+    Then API call got success status code
