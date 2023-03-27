@@ -13,7 +13,5 @@ public class ParseComplexJSON {
         System.out.println("Purchase amount: " +js.getInt("dashboard.purchaseAmount"));
         // Title of first course
         System.out.println("Title of first course: " +js.getString("courses[0].title"));
-
-
     }
 }

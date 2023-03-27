@@ -1,7 +1,10 @@
 package com.basics;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
+import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,8 +13,11 @@ public class Basic {
         //given - all input details
         // when - submit API (POST/GET/PUT/DELETE) and resource
         //then  -validate response
-        RestAssured.baseURI = "https://rahulshettyacademy.com";
-        String response = given().log().all().queryParam("key","qaclick123").header("Content-Type","application/json")
+        RequestSpecification reqSpec = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+                .addQueryParam("key", "qaclick123")
+                .setContentType(ContentType.JSON).build();
+     //   RestAssured.baseURI = "https://rahulshettyacademy.com";
+        String response = given().log().all().spec(reqSpec)
                 .body("{\n"
                         + "  \"location\": {\n"
                         + "    \"lat\": -38.383494,\n"
@@ -28,6 +34,7 @@ public class Basic {
                         + "  \"website\": \"http://google.com\",\n"
                         + "  \"language\": \"French-IN\"\n"
                         + "}\n").when().post("/maps/api/place/add/json")
+
                 .then().log().all().assertThat().statusCode(200).extract().response().asString();
 
         //log().all() method with given and then is used to log complete request & response
