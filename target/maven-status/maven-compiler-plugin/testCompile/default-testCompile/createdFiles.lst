@@ -1,0 +1,12 @@
+com\basics\SerializationDesSerialization.class
+stepDefinitions\MyStepdefs.class
+com\basics\JiraTest.class
+com\basics\ParseComplexJSON.class
+com\basics\JiraBasic.class
+resources\TestDataBuild.class
+com\basics\Basic.class
+resources\Utilities.class
+runner\TestRunner.class
+stepDefinitions\HooksClass.class
+com\testData\SampleJSON.class
+stepDefinitions\MyStepdefs2.class
